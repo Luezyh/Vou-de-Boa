@@ -46,7 +46,7 @@
             <span class="tag tag-open">Aberto agora</span>
           </div>
           <button class="btn-hero" onclick="showToast('Abrindo no mapa…')">Ver no mapa →</button>
-          <div class="hero-decor"></div>
+
         </div>
 
         <!-- Lugares próximos -->
@@ -58,8 +58,8 @@
           <div class="places-list">
 
             <div class="place-card" onclick="openPlace('Parque Trianon')">
-              <div class="place-img" style="background:linear-gradient(135deg,#a8d8a8,#52b26b)">
-                <span class="place-emoji">🌲</span>
+              <div class="place-img" style="background-image: url(./images/trianon.png);">
+                <span class="place-emoji"></span>
               </div>
               <div class="place-info">
                 <h4>Parque Trianon</h4>
@@ -75,8 +75,8 @@
             </div>
 
             <div class="place-card" onclick="openPlace('MASP')">
-              <div class="place-img" style="background:linear-gradient(135deg,#f9c784,#e8703a)">
-                <span class="place-emoji">🏛️</span>
+              <div class="place-img" style="background-image: url(./images/masp.png);">
+                <span class="place-emoji"></span>
               </div>
               <div class="place-info">
                 <h4>MASP</h4>
@@ -92,8 +92,8 @@
             </div>
 
             <div class="place-card" onclick="openPlace('Pinacoteca')">
-              <div class="place-img" style="background:linear-gradient(135deg,#c9b8e8,#7c5cbf)">
-                <span class="place-emoji">🎨</span>
+              <div class="place-img" style="background-image: url(./images/pinacoteca.png);">
+                <span class="place-emoji"></span>
               </div>
               <div class="place-info">
                 <h4>Pinacoteca do Estado</h4>
@@ -189,8 +189,8 @@
         <div class="grid-places" id="places-grid">
 
           <div class="grid-card" data-cat="parques" onclick="openPlace('Parque do Ibirapuera')">
-            <div class="grid-img" style="background:linear-gradient(135deg,#a8d8a8,#2d8a4e)">
-              <span>🌳</span>
+            <div class="grid-img" style="background-image: url(./images/parque_ibirapuera.png);">
+              <span></span>
               <button class="fav-btn fav-grid" aria-label="Favoritar" onclick="toggleFav(event, this)">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
               </button>
@@ -203,8 +203,8 @@
           </div>
 
           <div class="grid-card" data-cat="museus" onclick="openPlace('MASP')">
-            <div class="grid-img" style="background:linear-gradient(135deg,#f9c784,#e8703a)">
-              <span>🏛️</span>
+            <div class="grid-img" style="background-image: url(./images/masp.png);">
+              <span></span>
               <button class="fav-btn fav-grid" aria-label="Favoritar" onclick="toggleFav(event, this)">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
               </button>
@@ -217,8 +217,8 @@
           </div>
 
           <div class="grid-card" data-cat="cultura" onclick="openPlace('Pinacoteca')">
-            <div class="grid-img" style="background:linear-gradient(135deg,#c9b8e8,#7c5cbf)">
-              <span>🎨</span>
+            <div class="grid-img" style="background-image: url(./images/pinacoteca.png);">
+              <span></span>
               <button class="fav-btn fav-grid" aria-label="Favoritar" onclick="toggleFav(event, this)">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
               </button>
@@ -231,8 +231,8 @@
           </div>
 
           <div class="grid-card" data-cat="parques" onclick="openPlace('Parque Trianon')">
-            <div class="grid-img" style="background:linear-gradient(135deg,#b8e4b8,#3d9e3d)">
-              <span>🌲</span>
+            <div class="grid-img" style="background-image: url(./images/trianon.png);">
+              <span></span>
               <button class="fav-btn fav-grid" aria-label="Favoritar" onclick="toggleFav(event, this)">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
               </button>
@@ -245,8 +245,8 @@
           </div>
 
           <div class="grid-card" data-cat="eventos" onclick="openPlace('Feira da Liberdade')">
-            <div class="grid-img" style="background:linear-gradient(135deg,#ffd6a5,#ff8c42)">
-              <span>🏮</span>
+            <div class="grid-img" style="background-image: url(./images/liberdade.png);">
+              <span></span>
               <button class="fav-btn fav-grid" aria-label="Favoritar" onclick="toggleFav(event, this)">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
               </button>
@@ -259,8 +259,8 @@
           </div>
 
           <div class="grid-card" data-cat="cultura" onclick="openPlace('Centro Cultural SP')">
-            <div class="grid-img" style="background:linear-gradient(135deg,#ffd6e0,#e05c8a)">
-              <span>🎭</span>
+            <div class="grid-img" style="background-image: url(./images/centro_cultural.png);">
+              <span></span>
               <button class="fav-btn fav-grid" aria-label="Favoritar" onclick="toggleFav(event, this)">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
               </button>
@@ -273,8 +273,8 @@
           </div>
 
           <div class="grid-card" data-cat="museus" onclick="openPlace('Museu do Ipiranga')">
-            <div class="grid-img" style="background:linear-gradient(135deg,#ffe0a3,#d4a017)">
-              <span>🏺</span>
+            <div class="grid-img" style="background-image: url(./images/ipiranga.png);">
+              <span></span>
               <button class="fav-btn fav-grid" aria-label="Favoritar" onclick="toggleFav(event, this)">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
               </button>
@@ -287,7 +287,7 @@
           </div>
 
           <div class="grid-card" data-cat="eventos" onclick="openPlace('Concerto Villa-Lobos')">
-            <div class="grid-img" style="background:linear-gradient(135deg,#d4f0ff,#3a9fc8)">
+            <div class="grid-img" style="background-image: url(./images/concerto_villa_lobos.png);">
               <span>🎵</span>
               <button class="fav-btn fav-grid" aria-label="Favoritar" onclick="toggleFav(event, this)">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>

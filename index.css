@@ -308,6 +308,8 @@ body {
 }
 .place-card:active { transform: scale(.98); box-shadow: var(--shadow-md); }
 .place-img {
+  background-position: center;
+  background-size: cover;
   width: 58px;
   height: 58px;
   border-radius: var(--radius-sm);
@@ -505,6 +507,8 @@ body {
 .grid-card:active { transform: scale(.97); box-shadow: var(--shadow-md); }
 .grid-card.hidden { display: none; }
 .grid-img {
+  background-position: center;
+  background-size: cover;
   position: relative;
   height: 90px;
   display: flex;

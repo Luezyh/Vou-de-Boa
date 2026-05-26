@@ -16,34 +16,42 @@ const state = {
 // ─── DADOS DOS LUGARES (para modal) ──────────
 const places = {
   'Parque do Ibirapuera': {
+    img : 'parque_ibirapuera.png',
     emoji: '🌳',
     desc: 'O maior parque urbano de SP com 1,6 km². Museu de Arte Moderna, lago, ciclovias e muito verde. Entrada completamente gratuita todos os dias.',
   },
   'MASP': {
+    img : 'masp.png',
     emoji: '🏛️',
     desc: 'Museu de Arte de São Paulo — acervo com mais de 8.000 obras. Entrada gratuita todas as terças-feiras. Às margens da Av. Paulista.',
   },
   'Pinacoteca': {
+    img : 'pinacoteca.png',
     emoji: '🎨',
     desc: 'Maior museu de artes visuais do Brasil, com obras do século XIX até a arte contemporânea. Entrada gratuita aos sábados.',
   },
   'Parque Trianon': {
+    img : 'trianon.png',
     emoji: '🌲',
     desc: 'Um pedaço de Mata Atlântica no coração da Avenida Paulista. Entrada gratuita. Perfeito para uma pausa verde no dia a dia.',
   },
   'Feira da Liberdade': {
+    img : 'liberdade.png',
     emoji: '🏮',
     desc: 'A maior feira oriental fora do Japão. Toda domingo na Praça da Liberdade. Gastronomia, cultura e artesanato japonês. Gratuita.',
   },
   'Centro Cultural SP': {
+    img : 'centro_cultural.png',
     emoji: '🎭',
     desc: 'Espaço cultural com teatro, cinema, biblioteca e exposições. Programação variada e sempre gratuita.',
   },
   'Museu do Ipiranga': {
+    img : 'ipiranga.png',
     emoji: '🏺',
     desc: 'Museu histórico com acervo sobre a Independência do Brasil. Recém-reformado e lindo! Gratuito aos domingos.',
   },
   'Concerto Villa-Lobos': {
+    img : 'concerto_villa_lobos.png',
     emoji: '🎵',
     desc: 'Concerto da Orquestra Sinfônica Brasileira ao ar livre no Parque Villa-Lobos. Sábado, 01 Jun às 16h. Gratuito e inesquecível!',
   },
@@ -119,8 +127,8 @@ function renderFavs() {
     const info = places[name] || { emoji: '📍', desc: 'Lugar incrível!' };
     return `
       <div class="place-card">
-        <div class="place-img" style="background:linear-gradient(135deg,#ffe0c8,#ff8c42)">
-          <span class="place-emoji">${info.emoji}</span>
+        <div class="place-img" style="background-image: url(./images/${info.img});">
+          <span class="place-emoji"></span>
         </div>
         <div class="place-info">
           <h4>${name}</h4>
