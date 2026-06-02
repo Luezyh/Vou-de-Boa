@@ -84,8 +84,9 @@ Adicione aqui capturas de tela do sistema:
 
 Desenvolvido por:
 
-* Nome Integrante 1
-* Nome Integrante 2
-* Nome Integrante 3
+* Arthur Ribeiro Cunha
+* Guilherme Alves de Oliveira Romão
+* Luiz Miguel Nascimento de Lima
+* Matheus Tenorio Moreira dos Santos
 
 ##
