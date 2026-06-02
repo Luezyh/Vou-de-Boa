@@ -90,3 +90,7 @@ Desenvolvido por:
 * Matheus Tenorio Moreira dos Santos
 
 ##
+
+---
+
+<p align="center">Feito pela equipe Vou de Boa 📍</p>
