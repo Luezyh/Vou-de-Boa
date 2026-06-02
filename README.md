@@ -57,7 +57,7 @@ vou-de-boa/
 1. Clone o repositório:
 
 ```bash
-git clone https://github.com/seu-usuario/vou-de-boa.git
+git clone https://github.com/Luezyh/Vou-de-Boa.git
 ```
 
 2. Acesse a pasta do projeto:
