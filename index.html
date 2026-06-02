@@ -1,18 +1,39 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vou de Boa</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap"
+    rel="stylesheet" />
   <link rel="stylesheet" href="./index.css" />
 </head>
+
 <body>
 
   <!-- ─── APP WRAPPER ─── -->
   <div class="app">
+
+    <!-- SKELETON -->
+    <div class="skeleton-screen" id="skeleton-screen">
+      <div class="sk-header">
+        <div class="sk-block sk-title"></div>
+        <div class="sk-block sk-subtitle"></div>
+      </div>
+      <div class="sk-hero"></div>
+      <div class="sk-block sk-label"></div>
+      <div class="sk-card-row">
+        <div class="sk-card"></div>
+        <div class="sk-card"></div>
+      </div>
+      <div class="sk-block sk-label"></div>
+      <div class="sk-event"></div>
+      <div class="sk-event"></div>
+    </div>
 
     <!-- ══════════════════════════════
          SEÇÃO: INÍCIO
@@ -23,12 +44,15 @@
       <div class="section-header sticky-header">
         <div class="header-top">
           <div>
-            <p class="header-greeting">Olá, Tom! 👋</p>
+            <p class="header-greeting" id="header-greeting">Olá, Tom! 👋</p>
             <h1 class="header-title">O que fazer hoje?</h1>
           </div>
         </div>
         <div class="location-pill">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+          </svg>
           São Paulo, SP
         </div>
       </div>
@@ -36,17 +60,18 @@
       <div class="scroll-content">
 
         <!-- Destaque hero -->
-        <div class="hero-card">
+        <div class="hero-card" id="hero-card">
           <div class="hero-badge">🌟 Em destaque</div>
-          <h2 class="hero-place-name">Parque do Ibirapuera</h2>
-          <p class="hero-place-desc">O pulmão de SP com museus, lagos e muito verde. Entrada gratuita todos os dias.</p>
-          <div class="hero-meta">
+          <h2 class="hero-place-name" id="hero-name">Parque do Ibirapuera</h2>
+          <p class="hero-place-desc" id="hero-desc">O pulmão de SP com museus, lagos e muito verde. Entrada gratuita
+            todos os dias.</p>
+          <div class="hero-meta" id="hero-meta">
             <span class="tag tag-free">Grátis</span>
             <span class="tag tag-dist">2,4 km</span>
             <span class="tag tag-open">Aberto agora</span>
           </div>
           <button class="btn-hero" onclick="showToast('Abrindo no mapa…')">Ver no mapa →</button>
-
+          <div class="hero-dots" id="hero-dots"></div>
         </div>
 
         <!-- Lugares próximos -->
@@ -59,7 +84,6 @@
 
             <div class="place-card" onclick="openPlace('Parque Trianon')">
               <div class="place-img" style="background-image: url(./images/trianon.png);">
-                <span class="place-emoji"></span>
               </div>
               <div class="place-info">
                 <h4>Parque Trianon</h4>
@@ -70,13 +94,16 @@
                 </div>
               </div>
               <button class="fav-btn" aria-label="Favoritar" onclick="toggleFav(event, this)">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                </svg>
               </button>
             </div>
 
             <div class="place-card" onclick="openPlace('MASP')">
               <div class="place-img" style="background-image: url(./images/masp.png);">
-                <span class="place-emoji"></span>
+
               </div>
               <div class="place-info">
                 <h4>MASP</h4>
@@ -87,13 +114,15 @@
                 </div>
               </div>
               <button class="fav-btn" aria-label="Favoritar" onclick="toggleFav(event, this)">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                </svg>
               </button>
             </div>
 
             <div class="place-card" onclick="openPlace('Pinacoteca')">
               <div class="place-img" style="background-image: url(./images/pinacoteca.png);">
-                <span class="place-emoji"></span>
               </div>
               <div class="place-info">
                 <h4>Pinacoteca do Estado</h4>
@@ -104,7 +133,10 @@
                 </div>
               </div>
               <button class="fav-btn" aria-label="Favoritar" onclick="toggleFav(event, this)">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                </svg>
               </button>
             </div>
 
@@ -171,7 +203,11 @@
       <div class="section-header sticky-header">
         <h1 class="header-title">Descobrir</h1>
         <div class="search-bar-wrap">
-          <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2">
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
           <input type="text" id="search-input" class="search-input" placeholder="Buscar lugares, eventos…" />
           <button class="clear-search" id="clear-search" aria-label="Limpar">✕</button>
         </div>
@@ -192,11 +228,14 @@
             <div class="grid-img" style="background-image: url(./images/parque_ibirapuera.png);">
               <span></span>
               <button class="fav-btn fav-grid" aria-label="Favoritar" onclick="toggleFav(event, this)">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                </svg>
               </button>
             </div>
             <div class="grid-info">
-              <h4>Parque Ibirapuera</h4>
+              <h4>Parque do Ibirapuera</h4>
               <p>2,4 km · Aberto agora</p>
               <span class="tag tag-free">Grátis</span>
             </div>
@@ -206,7 +245,10 @@
             <div class="grid-img" style="background-image: url(./images/masp.png);">
               <span></span>
               <button class="fav-btn fav-grid" aria-label="Favoritar" onclick="toggleFav(event, this)">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                </svg>
               </button>
             </div>
             <div class="grid-info">
@@ -220,7 +262,10 @@
             <div class="grid-img" style="background-image: url(./images/pinacoteca.png);">
               <span></span>
               <button class="fav-btn fav-grid" aria-label="Favoritar" onclick="toggleFav(event, this)">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                </svg>
               </button>
             </div>
             <div class="grid-info">
@@ -234,7 +279,10 @@
             <div class="grid-img" style="background-image: url(./images/trianon.png);">
               <span></span>
               <button class="fav-btn fav-grid" aria-label="Favoritar" onclick="toggleFav(event, this)">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                </svg>
               </button>
             </div>
             <div class="grid-info">
@@ -248,7 +296,10 @@
             <div class="grid-img" style="background-image: url(./images/liberdade.png);">
               <span></span>
               <button class="fav-btn fav-grid" aria-label="Favoritar" onclick="toggleFav(event, this)">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                </svg>
               </button>
             </div>
             <div class="grid-info">
@@ -262,7 +313,10 @@
             <div class="grid-img" style="background-image: url(./images/centro_cultural.png);">
               <span></span>
               <button class="fav-btn fav-grid" aria-label="Favoritar" onclick="toggleFav(event, this)">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                </svg>
               </button>
             </div>
             <div class="grid-info">
@@ -276,7 +330,10 @@
             <div class="grid-img" style="background-image: url(./images/ipiranga.png);">
               <span></span>
               <button class="fav-btn fav-grid" aria-label="Favoritar" onclick="toggleFav(event, this)">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                </svg>
               </button>
             </div>
             <div class="grid-info">
@@ -288,9 +345,12 @@
 
           <div class="grid-card" data-cat="eventos" onclick="openPlace('Concerto Villa-Lobos')">
             <div class="grid-img" style="background-image: url(./images/concerto_villa_lobos.png);">
-              <span>🎵</span>
+              <span></span>
               <button class="fav-btn fav-grid" aria-label="Favoritar" onclick="toggleFav(event, this)">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                </svg>
               </button>
             </div>
             <div class="grid-info">
@@ -353,7 +413,7 @@
           <div class="profile-avatar">
             <span>🧭</span>
           </div>
-          <h2 class="profile-name">Tom</h2>
+          <h2 class="profile-name" id="profile-name" contenteditable="true" spellcheck="false">Tom</h2>
           <p class="profile-handle">@voce · São Paulo, SP</p>
           <div class="profile-stats">
             <div class="stat">
@@ -377,27 +437,27 @@
         <div class="profile-section">
           <h3 class="section-title">Conquistas</h3>
           <div class="badges-grid">
-            <div class="badge-item earned">
+            <div class="badge-item" id="badge-primeiro-passeio">
               <span>🌱</span>
               <p>Primeiro Passeio</p>
             </div>
-            <div class="badge-item earned">
+            <div class="badge-item" id="badge-explorador">
               <span>🗺️</span>
               <p>Explorador</p>
             </div>
-            <div class="badge-item">
+            <div class="badge-item" id="badge-5-museus">
               <span>🏆</span>
               <p>5 Museus</p>
             </div>
-            <div class="badge-item">
+            <div class="badge-item" id="badge-natureza">
               <span>🌳</span>
               <p>Amigo da Natureza</p>
             </div>
-            <div class="badge-item">
+            <div class="badge-item" id="badge-cultural">
               <span>🎭</span>
               <p>Apreciador Cultural</p>
             </div>
-            <div class="badge-item">
+            <div class="badge-item" id="badge-10-favs">
               <span>⭐</span>
               <p>10 Favoritos</p>
             </div>
@@ -412,24 +472,32 @@
               <span class="setting-icon">📍</span>
               <span class="setting-label">Localização</span>
               <span class="setting-value">São Paulo, SP</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
             </button>
             <button class="setting-row" onclick="showToast('Em breve!')">
               <span class="setting-icon">🔔</span>
               <span class="setting-label">Notificações</span>
               <span class="setting-value">Ativas</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
             </button>
             <button class="setting-row" onclick="showToast('Em breve!')">
               <span class="setting-icon">🎯</span>
               <span class="setting-label">Raio de busca</span>
               <span class="setting-value">5 km</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
             </button>
             <button class="setting-row danger" onclick="showToast('Em breve!')">
               <span class="setting-icon">🚪</span>
               <span class="setting-label">Sair da conta</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
             </button>
           </div>
         </div>
@@ -445,25 +513,41 @@
     <nav class="tabbar">
       <button class="tab-btn active" data-tab="inicio" onclick="switchTab('inicio')">
         <div class="tab-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+            <polyline points="9 22 9 12 15 12 15 22" />
+          </svg>
         </div>
         <span>Início</span>
       </button>
       <button class="tab-btn" data-tab="procurar" onclick="switchTab('procurar')">
         <div class="tab-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
         </div>
         <span>Procurar</span>
       </button>
       <button class="tab-btn" data-tab="favoritos" onclick="switchTab('favoritos')">
         <div class="tab-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path
+              d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+          </svg>
         </div>
         <span>Favoritos</span>
       </button>
       <button class="tab-btn" data-tab="perfil" onclick="switchTab('perfil')">
         <div class="tab-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+            <circle cx="12" cy="7" r="4" />
+          </svg>
         </div>
         <span>Perfil</span>
       </button>
@@ -486,4 +570,5 @@
 
   <script src="./index.js"></script>
 </body>
+
 </html>

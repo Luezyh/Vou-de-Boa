@@ -1,5 +1,5 @@
 /* ══════════════════════════════════════════════
-   PASSEIO APP — styles.css
+   VOU DE BOA — styles.css
    Cor principal: Laranja (#FF6B00 / #FF8C42)
 ══════════════════════════════════════════════ */
 
@@ -375,6 +375,7 @@ body {
   transition: transform .15s;
 }
 .event-card:active { transform: scale(.98); }
+.event-card:hover { box-shadow: var(--shadow-md); transform: scale(.99); }
 .event-date {
   display: flex;
   flex-direction: column;
@@ -807,3 +808,97 @@ body {
 
 /* ─── UTILITY ─── */
 .hidden { display: none !important; }
+
+/* ─── HERO DOTS ─── */
+.hero-dots {
+  display: flex;
+  gap: 6px;
+  margin-top: 16px;
+}
+.hero-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 100px;
+  background: rgba(255,255,255,.4);
+  transition: width .3s, background .3s;
+}
+.hero-dot.active {
+  width: 18px;
+  background: #fff;
+}
+
+/* ─── HERO FADE ─── */
+.hero-card.fade-out .hero-place-name,
+.hero-card.fade-out .hero-place-desc,
+.hero-card.fade-out .hero-meta {
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity .25s, transform .25s;
+}
+.hero-place-name,
+.hero-place-desc,
+.hero-meta {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity .25s, transform .25s;
+}
+
+/* ─── NOME EDITÁVEL ─── */
+.profile-name[contenteditable]:focus {
+  outline: 2px solid rgba(255,255,255,.6);
+  border-radius: 8px;
+  padding: 2px 8px;
+}
+.profile-name[contenteditable]:empty::before {
+  content: 'Seu nome';
+  opacity: .5;
+}
+
+/* ─── SKELETON ─── */
+.skeleton-screen {
+  position: absolute;
+  inset: 0;
+  background: var(--bg);
+  z-index: 500;
+  padding: 52px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: opacity .4s ease;
+}
+.skeleton-screen.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+.sk-header { display: flex; flex-direction: column; gap: 8px; margin-bottom: 4px; }
+.sk-block {
+  background: var(--border);
+  border-radius: 100px;
+  animation: sk-pulse 1.4s ease-in-out infinite;
+}
+.sk-title   { height: 28px; width: 55%; }
+.sk-subtitle{ height: 16px; width: 35%; }
+.sk-label   { height: 16px; width: 40%; }
+.sk-hero {
+  height: 160px;
+  border-radius: var(--radius-xl);
+  background: var(--border);
+  animation: sk-pulse 1.4s ease-in-out infinite;
+}
+.sk-card-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.sk-card {
+  height: 130px;
+  border-radius: var(--radius-md);
+  background: var(--border);
+  animation: sk-pulse 1.4s ease-in-out infinite;
+}
+.sk-event {
+  height: 64px;
+  border-radius: var(--radius-md);
+  background: var(--border);
+  animation: sk-pulse 1.4s ease-in-out infinite;
+}
+@keyframes sk-pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: .45; }
+}
