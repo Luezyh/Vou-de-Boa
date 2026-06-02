@@ -10,7 +10,6 @@ A plataforma exibe locais como:
 
 * 🍽️ Restaurantes
 * ☕ Cafeterias
-* 🍺 Bares
 * 🌳 Parques
 * 🛍️ Shoppings
 * 🎉 Eventos
