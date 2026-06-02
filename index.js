@@ -1,9 +1,126 @@
-/* ══════════════════════════════════════════════
-   VOU DE BOA — script.js
-══════════════════════════════════════════════ */
 
-// ─── SKELETON ─────────────────────────────────
-(function() {
+function getUsuarios() {
+  return JSON.parse(localStorage.getItem('vdb_usuarios') || '[]');
+}
+
+function salvarUsuarios(users) {
+  localStorage.setItem('vdb_usuarios', JSON.stringify(users));
+}
+
+function getLogado() {
+  return JSON.parse(localStorage.getItem('vdb_logado') || 'null');
+}
+
+function showAuthTab(tab) {
+  const entrar = document.getElementById('auth-entrar');
+  const cadastro = document.getElementById('auth-cadastro');
+  const btnE = document.getElementById('tab-entrar-btn');
+  const btnC = document.getElementById('tab-cadastro-btn');
+  const erroL = document.getElementById('login-erro');
+  const erroC = document.getElementById('cad-erro');
+
+  if (tab === 'entrar') {
+    entrar.classList.remove('hidden');
+    cadastro.classList.add('hidden');
+    btnE.classList.add('active');
+    btnC.classList.remove('active');
+  } else {
+    entrar.classList.add('hidden');
+    cadastro.classList.remove('hidden');
+    btnE.classList.remove('active');
+    btnC.classList.add('active');
+  }
+
+  erroL.classList.add('hidden');
+  erroC.classList.add('hidden');
+}
+
+function handleLogin() {
+  const email = document.getElementById('login-email').value.trim().toLowerCase();
+  const senha = document.getElementById('login-senha').value;
+  const erro = document.getElementById('login-erro');
+
+  const users = getUsuarios();
+  const user = users.find(u => u.email === email && u.senha === senha);
+
+  if (!user) {
+    erro.classList.remove('hidden');
+    return;
+  }
+
+  localStorage.setItem('vdb_logado', JSON.stringify(user));
+  erro.classList.add('hidden');
+  entrarNoApp(user);
+}
+
+function handleCadastro() {
+  const nome = document.getElementById('cad-nome').value.trim();
+  const email = document.getElementById('cad-email').value.trim().toLowerCase();
+  const senha = document.getElementById('cad-senha').value;
+  const erro = document.getElementById('cad-erro');
+
+  if (!nome || !email || senha.length < 6) {
+    erro.textContent = !nome || !email
+      ? 'Preencha todos os campos.'
+      : 'A senha precisa ter ao menos 6 caracteres.';
+    erro.classList.remove('hidden');
+    return;
+  }
+
+  const users = getUsuarios();
+  if (users.find(u => u.email === email)) {
+    erro.textContent = 'Este e-mail já está cadastrado.';
+    erro.classList.remove('hidden');
+    return;
+  }
+
+  const novoUser = { nome, email, senha };
+  users.push(novoUser);
+  salvarUsuarios(users);
+  localStorage.setItem('vdb_logado', JSON.stringify(novoUser));
+  erro.classList.add('hidden');
+  entrarNoApp(novoUser);
+}
+
+function entrarNoApp(user) {
+  
+  localStorage.setItem('profileName', user.nome);
+  const profileNameEl = document.getElementById('profile-name');
+  const greetEl = document.getElementById('header-greeting');
+  if (profileNameEl) profileNameEl.textContent = user.nome;
+  if (greetEl) greetEl.textContent = `Olá, ${user.nome}! 👋`;
+
+  
+  const authScreen = document.getElementById('auth-screen');
+  if (authScreen) {
+    authScreen.classList.add('hidden');
+    setTimeout(() => authScreen.remove(), 350);
+  }
+}
+
+function handleLogout() {
+  localStorage.removeItem('vdb_logado');
+  showToast('Até logo! 👋');
+  setTimeout(() => location.reload(), 1000);
+}
+
+
+(function checkAuth() {
+  const user = getLogado();
+  const authScreen = document.getElementById('auth-screen');
+  if (!authScreen) return;
+
+  if (user) {
+    
+    authScreen.classList.add('hidden');
+    setTimeout(() => authScreen.remove(), 0);
+    localStorage.setItem('profileName', user.nome);
+  }
+  
+})();
+
+
+(function () {
   const sk = document.getElementById('skeleton-screen');
   if (!sk) return;
   setTimeout(() => {
@@ -14,7 +131,7 @@
 
 'use strict';
 
-// ─── ESTADO ───────────────────────────────────
+
 const state = {
   currentTab: 'inicio',
   favorites: [],
@@ -23,7 +140,7 @@ const state = {
   activeFilter: 'todos',
 };
 
-// ─── DADOS DOS LUGARES (para modal) ──────────
+
 const places = {
   'Parque do Ibirapuera': {
     img: 'parque_ibirapuera.png',
@@ -67,15 +184,15 @@ const places = {
   },
 };
 
-// ─── NAVEGAÇÃO DE ABAS ────────────────────────
+
 function switchTab(tabId) {
   if (state.currentTab === tabId) return;
 
-  // Remove active de todos
+  
   document.querySelectorAll('.tab-section').forEach(s => s.classList.remove('active'));
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
 
-  // Ativa o novo
+  
   const section = document.getElementById('tab-' + tabId);
   const btn = document.querySelector(`.tab-btn[data-tab="${tabId}"]`);
   if (section) section.classList.add('active');
@@ -83,12 +200,12 @@ function switchTab(tabId) {
 
   state.currentTab = tabId;
 
-  // Atualiza favoritos quando entra na aba
+  
   if (tabId === 'favoritos') renderFavs();
   if (tabId === 'perfil') updateProfileStats();
 }
 
-// ─── FAVORITOS ────────────────────────────────
+
 function toggleFav(event, btn) {
   event.stopPropagation();
   const card = btn.closest('.place-card, .grid-card');
@@ -105,7 +222,7 @@ function toggleFav(event, btn) {
     showToast('❤️ Adicionado aos favoritos!');
   }
 
-  // Sincroniza todos os botões com o mesmo nome
+  
   syncFavButtons(name, state.favorites.includes(name));
   updateProfileStats();
 }
@@ -163,7 +280,7 @@ function removeFavByName(event, name) {
   showToast('Removido dos favoritos');
 }
 
-// ─── PERFIL STATS ─────────────────────────────
+
 function updateProfileStats() {
   const el = document.getElementById('stat-favs');
   const el2 = document.getElementById('stat-visited');
@@ -202,7 +319,7 @@ function setBadge(id, earned) {
   if (earned && !wasEarned) showToast('🏆 Conquista desbloqueada: ' + el.querySelector('p').textContent);
 }
 
-// ─── MODAL DE LUGAR ───────────────────────────
+
 function openPlace(name) {
   const info = places[name] || { emoji: '📍', desc: 'Um lugar incrível para visitar!' };
   document.getElementById('modal-title').textContent = name;
@@ -210,7 +327,7 @@ function openPlace(name) {
   document.getElementById('modal-emoji').textContent = info.emoji;
   document.getElementById('modal').classList.add('active');
 
-  // Marcar como visitado
+  
   if (!state.visited.includes(name)) {
     state.visited.push(name);
     updateProfileStats();
@@ -223,7 +340,7 @@ function closeModal(event) {
   }
 }
 
-// ─── SEARCH & FILTER (PROCURAR) ───────────────
+
 const searchInput = document.getElementById('search-input');
 const clearBtn = document.getElementById('clear-search');
 const placesGrid = document.getElementById('places-grid');
@@ -272,7 +389,7 @@ if (clearBtn) {
   });
 }
 
-// Filter chips
+
 document.querySelectorAll('.filter-chip').forEach(chip => {
   chip.addEventListener('click', () => {
     document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
@@ -282,7 +399,7 @@ document.querySelectorAll('.filter-chip').forEach(chip => {
   });
 });
 
-// Category chips (inicio)
+
 document.querySelectorAll('.cat-chip').forEach(chip => {
   chip.addEventListener('click', () => {
     document.querySelectorAll('.cat-chip').forEach(c => c.classList.remove('active'));
@@ -290,7 +407,7 @@ document.querySelectorAll('.cat-chip').forEach(chip => {
   });
 });
 
-// ─── TOAST ────────────────────────────────────
+
 let toastTimer = null;
 function showToast(msg) {
   const toast = document.getElementById('toast');
@@ -301,13 +418,12 @@ function showToast(msg) {
   toastTimer = setTimeout(() => toast.classList.remove('show'), 2200);
 }
 
-// ─── FECHAR MODAL COM ESC ─────────────────────
+
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeModal({});
 });
 
-// ─── INIT ─────────────────────────────────────
-// ─── HERO ROTATIVO ─────────────────────────────
+
 const heroItems = [
   {
     name: 'Parque do Ibirapuera',
@@ -349,7 +465,7 @@ function updateHero(index) {
   const dots = document.querySelectorAll('.hero-dot');
   if (!card || !name) return;
 
-  // fade out
+  
   card.classList.add('fade-out');
 
   setTimeout(() => {
@@ -359,7 +475,7 @@ function updateHero(index) {
     meta.innerHTML = item.tags;
     dots.forEach((d, i) => d.classList.toggle('active', i === index));
 
-    // fade in
+    
     card.classList.remove('fade-out');
   }, 260);
 }
@@ -370,19 +486,38 @@ setInterval(() => {
   updateHero(heroIndex);
 }, 4000);
 
-// ─── NOME EDITÁVEL ─────────────────────────────
+
 const profileNameEl = document.getElementById('profile-name');
 if (profileNameEl) {
   const saved = localStorage.getItem('profileName');
-  if (saved) profileNameEl.textContent = saved;
-  const greet = document.getElementById('header-greeting'); // 👈 adicione
-  if (greet) greet.textContent = `Olá, ${saved}! 👋`;
+  if (saved) {
+    profileNameEl.textContent = saved;
+    const greet = document.getElementById('header-greeting');
+    if (greet) greet.textContent = `Olá, ${saved}! 👋`;
+  }
 
   profileNameEl.addEventListener('blur', () => {
     const val = profileNameEl.textContent.trim();
     if (val) {
+      
       localStorage.setItem('profileName', val);
-      const greet = document.getElementById('header-greeting'); // 👈 adicione
+
+      
+      const logado = JSON.parse(localStorage.getItem('vdb_logado') || 'null');
+      if (logado) {
+        logado.nome = val;
+        localStorage.setItem('vdb_logado', JSON.stringify(logado));
+
+        
+        const users = JSON.parse(localStorage.getItem('vdb_usuarios') || '[]');
+        const idx = users.findIndex(u => u.email === logado.email);
+        if (idx !== -1) {
+          users[idx].nome = val;
+          localStorage.setItem('vdb_usuarios', JSON.stringify(users));
+        }
+      }
+
+      const greet = document.getElementById('header-greeting');
       if (greet) greet.textContent = `Olá, ${val}! 👋`;
       showToast('✅ Nome salvo!');
     } else {

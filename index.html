@@ -35,6 +35,59 @@
       <div class="sk-event"></div>
     </div>
 
+    <!-- ═══════════════════════════════
+     TELA DE LOGIN / CADASTRO
+═══════════════════════════════ -->
+    <div class="auth-screen" id="auth-screen">
+      <div class="auth-box">
+
+        <div class="auth-logo">
+          <img src="./images/logo.png" alt="Vou de Boa" id="auth-logo-img" />
+        </div>
+        <h1 class="auth-title">Vou de Boa</h1>
+        <p class="auth-sub">Descubra o melhor de São Paulo</p>
+
+        <!-- Abas -->
+        <div class="auth-tabs">
+          <button class="auth-tab active" id="tab-entrar-btn" onclick="showAuthTab('entrar')">Entrar</button>
+          <button class="auth-tab" id="tab-cadastro-btn" onclick="showAuthTab('cadastro')">Cadastrar</button>
+        </div>
+
+        <!-- Formulário: Entrar -->
+        <div class="auth-form" id="auth-entrar">
+          <div class="auth-field">
+            <label>E-mail</label>
+            <input type="email" id="login-email" placeholder="seu@email.com" />
+          </div>
+          <div class="auth-field">
+            <label>Senha</label>
+            <input type="password" id="login-senha" placeholder="••••••••" />
+          </div>
+          <p class="auth-error hidden" id="login-erro">E-mail ou senha incorretos.</p>
+          <button class="btn-auth" onclick="handleLogin()">Entrar</button>
+        </div>
+
+        <!-- Formulário: Cadastrar -->
+        <div class="auth-form hidden" id="auth-cadastro">
+          <div class="auth-field">
+            <label>Nome</label>
+            <input type="text" id="cad-nome" placeholder="Seu nome" />
+          </div>
+          <div class="auth-field">
+            <label>E-mail</label>
+            <input type="email" id="cad-email" placeholder="seu@email.com" />
+          </div>
+          <div class="auth-field">
+            <label>Senha</label>
+            <input type="password" id="cad-senha" placeholder="mínimo 6 caracteres" />
+          </div>
+          <p class="auth-error hidden" id="cad-erro">Preencha todos os campos.</p>
+          <button class="btn-auth" onclick="handleCadastro()">Criar conta</button>
+        </div>
+
+      </div>
+    </div>
+
     <!-- ══════════════════════════════
          SEÇÃO: INÍCIO
     ══════════════════════════════ -->
@@ -492,7 +545,7 @@
                 <polyline points="9 18 15 12 9 6" />
               </svg>
             </button>
-            <button class="setting-row danger" onclick="showToast('Em breve!')">
+            <button class="setting-row danger" onclick="handleLogout()">
               <span class="setting-icon">🚪</span>
               <span class="setting-label">Sair da conta</span>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
